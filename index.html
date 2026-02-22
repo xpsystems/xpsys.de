@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>xpsys.de — Gateway</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-primary: #0a0a0b;
+      --bg-secondary: #111113;
+      --bg-card: #161618;
+      --border: #27272a;
+      --text-primary: #fafafa;
+      --text-secondary: #a1a1aa;
+      --text-muted: #71717a;
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
+      --status-dev: #f59e0b;
+      --status-maintenance: #ef4444;
+      --status-construction: #8b5cf6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .tagline {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+    }
+
+    .link-card:hover {
+      background: var(--bg-secondary);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .link-card:hover .link-title {
+      color: var(--accent-hover);
+    }
+
+    .link-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.125rem;
+    }
+
+    .link-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .link-desc {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    .status-badge {
+      font-size: 0.65rem;
+      font-weight: 500;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .status-dev {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--status-dev);
+    }
+
+    .status-maintenance {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--status-maintenance);
+    }
+
+    .status-construction {
+      background: rgba(139, 92, 246, 0.15);
+      color: var(--status-construction);
+    }
+
+    .founders-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+    }
+
+    .founder-card {
+      padding: 1rem 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .founder-card:hover {
+      background: var(--bg-secondary);
+      border-color: var(--accent);
+    }
+
+    .founder-card:hover .founder-name {
+      color: var(--accent-hover);
+    }
+
+    .founder-name {
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    .footer-text {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-hover);
+    }
+
+    @media (max-width: 480px) {
+      .founders-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .link-card {
+        padding: 0.875rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="logo">xp<span>sys</span>.de</h1>
+      <p class="tagline">Gateway to xpsystems</p>
+    </header>
+
+    <section>
+      <h2 class="section-title">Services</h2>
+      <div class="links">
+        <a href="https://europehost.eu" class="link-card">
+          <div class="link-info">
+            <span class="link-title">EuropeHost.eu</span>
+            <span class="link-desc">European hosting solutions</span>
+          </div>
+        </a>
+        <a href="https://eudomains.eu" class="link-card">
+          <div class="link-info">
+            <span class="link-title">eudomains.eu</span>
+            <span class="link-desc">EU domain registration</span>
+          </div>
+          <span class="status-badge status-dev">In Development</span>
+        </a>
+        <a href="https://eushare.eu" class="link-card">
+          <div class="link-info">
+            <span class="link-title">eushare.eu</span>
+            <span class="link-desc">Secure file sharing</span>
+          </div>
+          <span class="status-badge status-dev">In Development</span>
+        </a>
+        <a href="https://dsc.pics" class="link-card">
+          <div class="link-info">
+            <span class="link-title">dsc.pics</span>
+            <span class="link-desc">Image hosting</span>
+          </div>
+          <span class="status-badge status-maintenance">Maintenance</span>
+        </a>
+        <a href="https://swiftshare.eu" class="link-card">
+          <div class="link-info">
+            <span class="link-title">swiftshare.eu</span>
+            <span class="link-desc">Fast sharing platform</span>
+          </div>
+          <span class="status-badge status-construction">Under Construction</span>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Partners</h2>
+      <div class="links">
+        <a href="https://mtex.dev" class="link-card">
+          <div class="link-info">
+            <span class="link-title">mtex.dev</span>
+            <span class="link-desc">"Building the tools we actually want to use"</span>
+          </div>
+        </a>
+        <a href="https://api-sandbox.de" class="link-card">
+          <div class="link-info">
+            <span class="link-title">api-sandbox.de</span>
+            <span class="link-desc">API Playground</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Founders</h2>
+      <div class="founders-grid">
+        <a href="https://dogwaterdev.de" class="founder-card">
+          <span class="founder-name">DogWaterDev.de</span>
+        </a>
+        <a href="https://fabianternis.dev" class="founder-card">
+          <span class="founder-name">fabianternis.dev</span>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <p class="footer-text">xpsystems — Building the future</p>
+      <div class="footer-links">
+        <a href="https://xpsystems.eu">xpsystems.eu</a>
+        <a href="https://xpsystems.de">xpsystems.de</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
