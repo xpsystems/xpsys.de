@@ -293,6 +293,17 @@
       color: var(--accent);
     }
 
+    .tech-tag.disabled {
+      opacity: 0.4;
+      text-decoration: line-through;
+      cursor: not-allowed;
+    }
+
+    .tech-tag.disabled:hover {
+      border-color: var(--border);
+      color: var(--text-secondary);
+    }
+
     /* Enhanced Partners Section */
     .partners-section {
       background: linear-gradient(
@@ -682,23 +693,18 @@
             <span class="tech-tag highlight">PHP</span>
             <span class="tech-tag highlight">Laravel</span>
             <span class="tech-tag highlight">Tailwind CSS</span>
-            <span class="tech-tag">Heroicons</span>
+            <span class="tech-tag highlight">Heroicons</span>
             <span class="tech-tag">Lucide Icons</span>
             <span class="tech-tag highlight">Stripe</span>
             <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">Vue.js</span>
             <span class="tech-tag">Alpine.js</span>
             <span class="tech-tag">MySQL</span>
             <span class="tech-tag">PostgreSQL</span>
-            <span class="tech-tag">Redis</span>
+            <span class="tech-tag disabled">Redis</span>
             <span class="tech-tag">Docker</span>
             <span class="tech-tag">Git</span>
             <span class="tech-tag">Vite</span>
-            <span class="tech-tag">Livewire</span>
-            <span class="tech-tag">Inertia.js</span>
             <span class="tech-tag">PayPal</span>
-            <span class="tech-tag">Mollie</span>
-            <span class="tech-tag">AWS</span>
           </div>
         </div>
       </div>
